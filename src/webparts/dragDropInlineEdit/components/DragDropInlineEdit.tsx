@@ -26,7 +26,7 @@ import { IDragDropInlineEditProps } from './IDragDropInlineEditProps';
 export type IItem = {
   id: string;
   name: string;
-}
+};
 
 export enum EnumEditType {
   create = 'create',
@@ -63,7 +63,7 @@ const DragDropInlineEdit: FC<IDragDropInlineEditProps> = (_props) => {
           <PrimaryButton
             onClick={() => {
               setEditTypeState(EnumEditType.create);
-              setCurrentCharacters({ id: Guid.newGuid().toString(), name: '' })
+              setCurrentCharacters({ id: Guid.newGuid().toString(), name: '' });
               openPanel();
 
               // For non documented 'getDetailsPaneConfiguration'
@@ -83,15 +83,15 @@ const DragDropInlineEdit: FC<IDragDropInlineEditProps> = (_props) => {
                   {charactersState.map(({ id, name }, index) => {
                     return (
                       <Draggable key={id} draggableId={id} index={index} isDragDisabled={_props.displayMode === DisplayMode.Read} >
-                        {(provided) => (
-                          <li ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
+                        {(providedDraggable) => (
+                          <li ref={providedDraggable.innerRef} {...providedDraggable.draggableProps} {...providedDraggable.dragHandleProps}>
                             {_props.displayMode === DisplayMode.Edit &&
                               <>
                                 <IconButton
                                   iconProps={{ iconName: 'Edit' }}
                                   onClick={() => {
                                     setEditTypeState(EnumEditType.update);
-                                    setCurrentCharacters(charactersState[index])
+                                    setCurrentCharacters(charactersState[index]);
                                     openPanel();
 
                                     // For non documented 'getDetailsPaneConfiguration'
@@ -163,6 +163,6 @@ const DragDropInlineEdit: FC<IDragDropInlineEditProps> = (_props) => {
       </>
     </div>
   );
-}
+};
 
 export default DragDropInlineEdit;
