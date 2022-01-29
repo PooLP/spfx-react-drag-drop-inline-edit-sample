@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "drag-drop-inline-edit-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/dragDropInlineEdit/DragDropInlineEditWebPart.js",
+          "manifest": "./src/webparts/dragDropInlineEdit/DragDropInlineEditWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "DragDropInlineEditWebPartStrings": "lib/webparts/dragDropInlineEdit/loc/{locale}.js"
+  }
+}
